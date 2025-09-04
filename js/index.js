@@ -19,8 +19,7 @@ function AddProdact() {
     Price: ProdactPrice.value,
     Cat: ProdactCat.value,
     Dec: ProdactDec.value,
-    Img:
-      ProdactImg.files.length > 0 ? `images/${ProdactImg.files[0].name}` : "",
+    Img: ProdactImg.files[0] ? `images/${ProdactImg.files[0].name}` : "",
   };
   ProdactList.push(prodact);
   UbdateLocalStorage();
@@ -30,11 +29,10 @@ function AddProdact() {
   console.log(prodact.Img);
 
   Toastify({
-    text: "✅ Product Added Successfully!",
+    text: "✅ Product Added Successfully",
     duration: 3000,
-    close: true,
-    gravity: "top",
-    position: "center",
+    gravity: "bottom",
+    position: "left",
     backgroundColor: "#ffb700ff",
   }).showToast();
 }
@@ -48,7 +46,7 @@ function DisplayProdact(list) {
       <td data-label="Price">${list[i].Price}</td>
       <td data-label="Category">${list[i].Cat}</td>
       <td data-label="Description">${list[i].Dec}</td>
-      <td data-label="Image"><img src="${list[i].Img || ""}" alt="product"></td>
+      <td data-label="Image">${list[i].Img ? `<img src="${list[i].Img}" alt="product">` : ""}</td>
       <td data-label="Action">
         <button onclick="GetUpdateProdact(${i})" class="btn btn-outline-warning btn-sm">Update</button>
         <button onclick="DeleteProdact(${i})" class="btn btn-outline-danger btn-sm">Delete</button>
@@ -64,11 +62,10 @@ function DeleteProdact(index) {
   DisplayProdact(ProdactList);
   console.log(ProdactList);
   Toastify({
-    text: "✅ Product Deleted Successfully!",
+    text: "✅ Product Deleted Successfully",
     duration: 3000,
-    close: true,
-    gravity: "top",
-    position: "center",
+    gravity: "bottom",
+    position: "left",
     backgroundColor: "#ffb700ff",
   }).showToast();
 }
@@ -84,7 +81,8 @@ function UbdateInputValue(confing) {
 function GetUpdateProdact(index) {
   UbdateInputValue(ProdactList[index]);
   currentIndex = index;
-  btnAdd.classList.add("d-none"), btnUpdate.classList.remove("d-none");
+  btnAdd.classList.add("d-none"),
+  btnUpdate.classList.remove("d-none");
 }
 
 function UbdateProdact() {
@@ -95,15 +93,13 @@ function UbdateProdact() {
   DisplayProdact(ProdactList);
   UbdateLocalStorage();
   btnAdd.classList.remove("d-none"),
-    btnUpdate.classList.add("d-none"),
-    UbdateInputValue();
-
+  btnUpdate.classList.add("d-none"),
+  UbdateInputValue();
   Toastify({
-    text: "✅ Product Ubdated Successfully!",
+    text: "✅ Product Ubdated Successfully",
     duration: 3000,
-    close: true,
-    gravity: "top",
-    position: "center",
+    gravity: "bottom",
+    position: "left",
     backgroundColor: "#ffb700ff",
   }).showToast();
 }
