@@ -15,6 +15,7 @@
 <body>
   <div class="container-box">
     <h1 class="text-center">🚀 CRUD SYSTEM</h1>
+
     <!-- Form Section -->
     <div class="form-floating my-2">
       <input type="text" class="form-control" id="productName" placeholder="">
@@ -42,6 +43,7 @@
       <input type="file" class="form-control" id="productImage" placeholder="">
       <label for="productImage">Product Image </label>
     </div>
+
     <div class="mt-3 text-center">
       <button id="btnAdd" onclick="AddProdact()">
         <i class="bi bi-plus-circle-fill"></i> Add Product
@@ -50,6 +52,7 @@
         <i class="bi bi-pencil-square"></i> Update Product
       </button>
     </div>
+
     <div class="table-responsive mt-4">
       <table class="table table-bordered text-center align-middle">
         <thead>
@@ -60,11 +63,10 @@
             <th>Category</th>
             <th>Description</th>
             <th>Image</th>
-            <th>Action</th>
+            <!-- Action header removed -->
           </tr>
         </thead>
         <tbody id="tbody">
-          <!-- JS هيضيف الصفوف هنا -->
         </tbody>
       </table>
     </div>

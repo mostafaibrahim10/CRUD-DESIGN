@@ -47,7 +47,7 @@ function DisplayProdact(list) {
       <td data-label="Category">${list[i].Cat}</td>
       <td data-label="Description">${list[i].Dec}</td>
       <td data-label="Image">${list[i].Img ? `<img src="${list[i].Img}" alt="product">` : ""}</td>
-      <td data-label="Action">
+      <td data-label="">
         <button onclick="GetUpdateProdact(${i})" class="btn btn-outline-warning btn-sm">Update</button>
         <button onclick="DeleteProdact(${i})" class="btn btn-outline-danger btn-sm">Delete</button>
       </td>
@@ -55,6 +55,7 @@ function DisplayProdact(list) {
   }
   document.getElementById("tbody").innerHTML = Prodact;
 }
+
 
 function DeleteProdact(index) {
   ProdactList.splice(index, 1);

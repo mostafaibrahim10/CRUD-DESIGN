@@ -1,3 +1,14 @@
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
   min-height: 100vh;
@@ -32,6 +43,7 @@ body::after {
   right: -150px;
 }
 
+/* الحاوية */
 .container-box {
   background: #ffffffcc;
   backdrop-filter: blur(10px);
@@ -42,6 +54,7 @@ body::after {
   max-width: 1000px;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 h1 {
@@ -49,6 +62,7 @@ h1 {
   color: #ff6600;
   margin-bottom: 20px;
 }
+
 
 .form-control {
   border-radius: 10px;
@@ -94,16 +108,18 @@ button {
   box-shadow: 0 5px 15px rgba(255, 168, 51, 0.4);
 }
 
+
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed; 
 }
 
-td,
-th {
+td, th {
   word-wrap: break-word;
   vertical-align: middle;
   padding: 8px;
+  overflow-wrap: break-word;
 }
 
 td img {
@@ -120,18 +136,14 @@ td button {
 }
 
 .table-responsive {
+  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
+/* Responsive للهواتف */
 @media (max-width: 576px) {
-
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
+  table, thead, tbody, th, td, tr {
     display: block;
   }
 
@@ -145,6 +157,7 @@ td button {
     border-radius: 12px;
     padding: 10px;
     background: #fff;
+    overflow: hidden; 
   }
 
   td {
@@ -152,6 +165,7 @@ td button {
     text-align: right;
     position: relative;
     max-width: 100%;
+    word-wrap: break-word;
   }
 
   td::before {
